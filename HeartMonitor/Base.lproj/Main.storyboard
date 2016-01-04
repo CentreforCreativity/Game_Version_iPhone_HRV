@@ -345,8 +345,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4g-5T-aZy">
-                                        <rect key="frame" x="76" y="77" width="54" height="30"/>
-                                        <state key="normal" title="Session">
+                                        <rect key="frame" x="76" y="77" width="68" height="30"/>
+                                        <state key="normal" title="Warm-Up">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -389,7 +389,7 @@
                                 <rect key="frame" x="305" y="213" width="150" height="142"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time (s) :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ev4-C0-aNA">
-                                <rect key="frame" x="20" y="51" width="63" height="28"/>
+                                <rect key="frame" x="19" y="51" width="63" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
