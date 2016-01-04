@@ -336,7 +336,7 @@
         NSDate *methodFinish = [NSDate date];
         self.executionTime = [methodFinish timeIntervalSinceDate:self.timeStarted];
         NSLog(@"executionTime = %.5f", self.executionTime);
-        self.executionTimeLabel.text = [NSString stringWithFormat:(@"%.1f"), self.executionTime];
+        self.executionTimeLabel.text = [NSString stringWithFormat:(@"%.0f"), self.executionTime];
         
         
         [heartbeatsArray addObject:[NSString stringWithFormat:@"%d",bpm]];

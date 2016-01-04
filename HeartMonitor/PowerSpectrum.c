@@ -25,8 +25,8 @@ HRVData analyseData(float timeStampreceived, NSInteger heartBeatreceived, int *c
  {
 
 
-
-    // SaveHeartRateData((double)timeStampreceived, (int)heartBeatreceived);
+ 
+     // SaveHeartRateData((double)timeStampreceived, (int)heartBeatreceived);
      PowerSpectrum((double)heartBeatreceived, (double)timeStampreceived);
 
      return hrvValues;
@@ -99,7 +99,7 @@ void PowerSpectrum(double hrCurrent, double timeCurrent)
             
             printf("LF Power = %.3lf\n",hrvValues.averagePower[0]);
             
-    //        SavePowerSpectrumData(powerspectrum);
+           // SavePowerSpectrumData(powerspectrum, timeCurrent);
             
             for(i=0; i<(numSamples - WINDOW_INCREMENT); i++)
             {
@@ -567,23 +567,14 @@ void SaveHeartRateData(double timeStampreceived, int heartBeatreceived)
         count++;
     }
     
-    //fprintf(fpHR,"%.3lf %d\n", timeStampreceived, heartBeatreceived);
+    fprintf(fpHR,"%.3lf %d\n", timeStampreceived, heartBeatreceived);
     
 }
+
 /*---------------------- Save Power Spectrum Data ---------------------------*/
 
-void SavePowerSpectrumData(double *powerspectrum)
+void SavePowerSpectrumData(double *powerspectrum, double timeCurrent)
 {
-    
-    
-    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                               NSUserDomainMask, YES);
-    
-    NSString *documentsPath = [searchPaths objectAtIndex:0];
-    const char *path = [documentsPath UTF8String];
-    printf("%s\n",path);
-    
-    
     static int count = 0;
     char *timeString, filename[255];
     time_t rawtime;
@@ -597,16 +588,14 @@ void SavePowerSpectrumData(double *powerspectrum)
         timeString = asctime(timeinfo);
         len = strlen(timeString);
         timeString[len-1] = '\0';
-    //    strcpy(filename,"/Users/garethloudon/Dropbox/Innovate UK Project Code/Logged_PowerSpec_Data/PS ");
-        strcpy(filename,path);
-        strcat(filename,"/PS/");
+        strcpy(filename,"/Users/garethloudon/Dropbox/Innovate UK Project Code/Logged_PowerSpec_Data/PS ");
         strcat(filename,timeString);
         strcat(filename, ".txt");
-        
-        
         fpPS = fopen(filename, "w");
         count++;
     }
+    
+    fprintf(fpPS,"%.3lf, ", timeCurrent);
     
     
     fprintf(fpPS,"%.3lf, ", hrvValues.heartRate);
@@ -621,14 +610,14 @@ void SavePowerSpectrumData(double *powerspectrum)
     fprintf(fpPS,"%d, ", hrvValues.attentionLevel);
     fprintf(fpPS,"%d\n", hrvValues.calmingLevel);
     
-    for(i=0; i<(NFFT/2); i++)
-    {
-        fprintf(fpPS,"%.3f, ", powerspectrum[i]);
-
-    }
-    fprintf(fpPS,"\n");
-
-
+    //  for(i=0; i<(NFFT/2); i++)
+    //  {
+    //     fprintf(fpPS,"%.3f, ", powerspectrum[i]);
+    
+    //  }
+    //   fprintf(fpPS,"\n");
+    
+    
     
 }
 

@@ -80,7 +80,7 @@ int CalcCalmAttentionLevel(int attentionLevel, int calmingLevel);
 
 
 void SaveHeartRateData(double timeStampreceived, int heartBeatreceived);
-void SavePowerSpectrumData(double *powerspectrum);
+void SavePowerSpectrumData(double *powerspectrum, double timeCurrent);
 void testMethod();
 
 
